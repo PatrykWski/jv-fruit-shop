@@ -2,8 +2,16 @@ package core.basesyntax.app;
 
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.model.Operation;
-import core.basesyntax.repository.*;
-import core.basesyntax.service.*;
+import core.basesyntax.repository.FileService;
+import core.basesyntax.repository.FileServiceImpl;
+import core.basesyntax.repository.FruitParser;
+import core.basesyntax.repository.Storage;
+import core.basesyntax.repository.StorageInterface;
+import core.basesyntax.service.AddOperationHandler;
+import core.basesyntax.service.OperationHandler;
+import core.basesyntax.service.PurchaseHandler;
+import core.basesyntax.service.ShopService;
+import core.basesyntax.service.ShopServiceImpl;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

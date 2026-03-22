@@ -1,7 +1,7 @@
 package core.basesyntax.repository;
 
-import core.basesyntax.model.Operation;
 import core.basesyntax.model.FruitTransaction;
+import core.basesyntax.model.Operation;
 
 public class FruitParser {
     private static final int ENUM_OPERATION = 0;
