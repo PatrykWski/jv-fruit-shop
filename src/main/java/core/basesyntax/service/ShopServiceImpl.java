@@ -21,7 +21,8 @@ public class ShopServiceImpl implements ShopService {
             OperationHandler handler = handlers.get(transaction.getOperation());
 
             if (handler == null) {
-                throw new RuntimeException("Nie znaleziono handlera dla: " + transaction.getOperation());
+                throw new RuntimeException(
+                        "Nie znaleziono handlera dla: " + transaction.getOperation());
             }
 
             int currentQuantity = storage.getQuantity(transaction.getFruitName());

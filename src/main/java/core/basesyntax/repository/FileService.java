@@ -7,5 +7,6 @@ import java.util.Map;
 public interface FileService {
 
     void saveToFile(Map<String, Integer> storageData, String fileName);
+
     List<FruitTransaction> loadFromFile(String fileName);
 }
