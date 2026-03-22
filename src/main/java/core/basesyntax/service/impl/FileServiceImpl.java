@@ -1,4 +1,4 @@
-package core.basesyntax.repository;
+package core.basesyntax.service.impl;
 
 import core.basesyntax.model.FruitTransaction;
 import java.io.BufferedReader;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class FileServiceImpl implements FileService {
-    private final FruitParser fruitParser;
+public class FileServiceImpl implements core.basesyntax.repository.FileService {
+    private final core.basesyntax.repository.FruitParser fruitParser;
 
-    public FileServiceImpl(FruitParser fruitParser) {
+    public FileServiceImpl(core.basesyntax.repository.FruitParser fruitParser) {
         this.fruitParser = fruitParser;
     }
 
@@ -21,7 +21,7 @@ public class FileServiceImpl implements FileService {
     public List<FruitTransaction> loadFromFile(String fileName) {
         List<FruitTransaction> transactions = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line;
+            String line = br.readLine();
             while ((line = br.readLine()) != null) {
                 transactions.add(fruitParser.parse(line));
             }

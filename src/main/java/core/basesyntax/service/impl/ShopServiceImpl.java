@@ -1,12 +1,13 @@
-package core.basesyntax.service;
+package core.basesyntax.service.impl;
 
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.model.Operation;
 import core.basesyntax.repository.StorageInterface;
+import core.basesyntax.strategy.OperationHandler;
 import java.util.List;
 import java.util.Map;
 
-public class ShopServiceImpl implements ShopService {
+public class ShopServiceImpl implements core.basesyntax.service.ShopService {
     private final StorageInterface storage;
     private final Map<Operation, OperationHandler> handlers;
 

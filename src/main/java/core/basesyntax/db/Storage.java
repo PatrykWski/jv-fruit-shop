@@ -1,10 +1,10 @@
-package core.basesyntax.repository;
+package core.basesyntax.db;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Storage implements StorageInterface {
-    private static final Map<String, Integer> fruitsInStock = new HashMap<>();
+public class Storage implements core.basesyntax.repository.StorageInterface {
+    private final Map<String, Integer> fruitsInStock = new HashMap<>();
 
     @Override
     public void put(String fruitName, int quantity) {
