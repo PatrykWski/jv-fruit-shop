@@ -1,6 +1,8 @@
 package core.basesyntax.service.impl;
 
 import core.basesyntax.model.FruitTransaction;
+import core.basesyntax.repository.FileService;
+import core.basesyntax.repository.FruitParser;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -10,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class FileServiceImpl implements core.basesyntax.repository.FileService {
-    private final core.basesyntax.repository.FruitParser fruitParser;
+public class FileServiceImpl implements FileService {
+    private final FruitParser fruitParser;
 
-    public FileServiceImpl(core.basesyntax.repository.FruitParser fruitParser) {
+    public FileServiceImpl(FruitParser fruitParser) {
         this.fruitParser = fruitParser;
     }
 
