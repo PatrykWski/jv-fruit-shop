@@ -1,8 +1,8 @@
 package core.basesyntax.service.impl;
 
 import core.basesyntax.model.FruitTransaction;
-import core.basesyntax.repository.FileService;
-import core.basesyntax.repository.FruitParser;
+import core.basesyntax.service.FileService;
+import core.basesyntax.service.FruitParser;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;

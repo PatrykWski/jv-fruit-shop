@@ -1,6 +1,6 @@
 package core.basesyntax.service;
 
-import core.basesyntax.repository.StorageInterface;
+import core.basesyntax.db.StorageInterface;
 
 public class FruitExistValidator {
     private final StorageInterface storage;

@@ -3,7 +3,7 @@ package core.basesyntax.db;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Storage implements core.basesyntax.repository.StorageInterface {
+public class Storage implements core.basesyntax.db.StorageInterface {
     private final Map<String, Integer> fruitsInStock = new HashMap<>();
 
     @Override
