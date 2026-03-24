@@ -23,9 +23,15 @@ public class FileServiceImpl implements FileService {
     public List<FruitTransaction> loadFromFile(String fileName) {
         List<FruitTransaction> transactions = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line = br.readLine();
+            String header = br.readLine();
+            if (header == null) {
+                return transactions;
+            }
+            String line;
             while ((line = br.readLine()) != null) {
-                transactions.add(fruitParser.parse(line));
+                if (!line.isBlank()) {
+                    transactions.add(fruitParser.parse(line));
+                }
             }
         } catch (IOException e) {
             throw new RuntimeException("Can't read the file " + fileName, e);

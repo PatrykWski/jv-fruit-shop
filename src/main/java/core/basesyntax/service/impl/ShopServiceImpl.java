@@ -2,34 +2,29 @@ package core.basesyntax.service.impl;
 
 import core.basesyntax.model.FruitTransaction;
 import core.basesyntax.model.Operation;
-import core.basesyntax.repository.StorageInterface;
+import core.basesyntax.service.ShopService;
 import core.basesyntax.strategy.OperationHandler;
 import java.util.List;
 import java.util.Map;
 
-public class ShopServiceImpl implements core.basesyntax.service.ShopService {
-    private final StorageInterface storage;
+public class ShopServiceImpl implements ShopService {
     private final Map<Operation, OperationHandler> handlers;
 
-    public ShopServiceImpl(StorageInterface storage, Map<Operation, OperationHandler> handlers) {
-        this.storage = storage;
+    // Zauważ: nie wstrzykujemy już tutaj Storage!
+    public ShopServiceImpl(Map<Operation, OperationHandler> handlers) {
         this.handlers = handlers;
     }
 
     @Override
-    public void process(List<FruitTransaction> transactions) {
+    public Map<String, Integer> process(List<FruitTransaction> transactions) {
+        Map<String, Integer> resultMap = new java.util.HashMap<>();
+
         for (FruitTransaction transaction : transactions) {
             OperationHandler handler = handlers.get(transaction.getOperation());
-
-            if (handler == null) {
-                throw new RuntimeException(
-                        "Nie znaleziono handlera dla: " + transaction.getOperation());
-            }
-
-            int currentQuantity = storage.getQuantity(transaction.getFruitName());
+            int currentQuantity = resultMap.getOrDefault(transaction.getFruitName(), 0);
             int newQuantity = handler.apply(currentQuantity, transaction.getQuantity());
-
-            storage.put(transaction.getFruitName(), newQuantity);
+            resultMap.put(transaction.getFruitName(), newQuantity);
         }
+        return resultMap;
     }
 }

@@ -31,19 +31,15 @@ public class FruitTransaction {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        FruitTransaction that = (FruitTransaction) o;
-        return Objects.equals(fruitName, that.fruitName);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        core.basesyntax.model.FruitTransaction that = (core.basesyntax.model.FruitTransaction) o;
+        return quantity == that.quantity && operation == that.operation && java.util.Objects.equals(fruitName, that.fruitName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(fruitName);
+        return java.util.Objects.hash(operation, fruitName, quantity);
     }
 
     @Override
